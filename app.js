@@ -19,7 +19,11 @@ const winningCombinations = [
 // i want the player to click on the box and x appears
 const board = document.querySelector(".board")
 const turnn = document.querySelector("#turn")
+const reset = document.querySelector("#reset")
+const squares = document.querySelectorAll(".sqr")
+
 board.addEventListener("click", function(event){
+   
     const clk = event.target //this is to know which square is clicked inside the board
     if  (gameOver === true) {
         return
@@ -35,13 +39,13 @@ console.log(clk)
 
 memory[clk.id] = player
 
- for (let i = 0; i < winningCombinations.length; i++) {
+ for (let i = 0; i < winningCombinations.length; i++) { 
         const combo = winningCombinations[i] 
         if (memory[combo[0]] === player && memory[combo[1]] === player && memory[combo[2]] === player) {
             turnn.textContent = player + " wins"
             gameOver = true
             return
-        }
+        } // this means check memory [0],[1],[2] wjich saves alot of time rather than writing all of them (I'm lost😔)
     }
 
     if (!memory.includes("")) {
@@ -67,12 +71,19 @@ turnn.textContent= "It's" + " " + player +  "'s turn"
 
 
 
-
-
 })
 
 
+reset.addEventListener("click", function() {
+    player = "X"
+    memory = ["", "", "", "", "", "", "", "", ""]
+    gameOver = false
+    squares.forEach(function(square) {
+square.textContent = ""
+    })
 
+    turnn.textContent = "It's X's turn"
+})
 
 
  
