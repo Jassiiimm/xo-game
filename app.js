@@ -12,7 +12,7 @@ const winningCombinations = [
   [1, 4, 7],
   [2, 5, 8],
   [0, 4, 8],
-  [2, 4, 6] // I copied them from the internet
+  [2, 4, 6] // I copied them from the internet (there is no way I'm writing all of this)
 ];
 
 
@@ -55,7 +55,6 @@ memory[clk.id] = player
     }
 
    
-
 
     //if statement so that if its x it turns to o and if o, then it turns to x
 
